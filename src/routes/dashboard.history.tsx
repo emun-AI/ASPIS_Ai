@@ -25,7 +25,7 @@ const SERIES: Record<string, number[]> = {
 function History() {
   const { state } = useAspis();
   const [range, setRange] = useState("7D");
-  const data = SERIES[range];
+  const data = SERIES[range] ?? SERIES["7D"]!;
   const min = Math.min(...data) - 6;
   const max = Math.max(...data) + 6;
   const points = data
